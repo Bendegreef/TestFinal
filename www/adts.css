@@ -1,0 +1,823 @@
+@font-face {
+    font-family: 'RalewayRegular';
+    src: url(fonts/Raleway-Regular-ADTS.otf);
+}
+
+@font-face {
+    font-family: 'RalewayLight';
+    src: url(fonts/Raleway-Light-ADTS.otf);
+}
+
+@font-face {
+    font-family: 'RalewayBold';
+    src: url(fonts/Raleway-Bold-ADTS.otf);
+}
+
+@font-face {
+    font-family: 'icons';
+    src: url('fonts/ADTS-Icons.eot');
+}
+
+@font-face {
+    font-family: 'icons';
+    src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8RDYEAAAC8AAAAYGNtYXD/9AFaAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5Zv6J4eQAAAF4AAANaGhlYWQFwfcbAAAO4AAAADZoaGVhB2QD1wAADxgAAAAkaG10eE4ACc0AAA88AAAAWGxvY2Effhs6AAAPlAAAAC5tYXhwACEApQAAD8QAAAAgbmFtZYbldD8AAA/kAAABqnBvc3QAAwAAAAARkAAAACAAAwPlAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAABAAAAAcgPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAgAHL//f//AAAAAAAgAGH//f//AAH/4/+jAAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAACAX0AGAKBA0sAEAAdAAABIyIGFxMeATMxMjY3EzYmJxMUBiMiJjU0NjMyFhUCAgI9Twk3BSkcHCsDOQxOPVw3Jyc3NycnNwNLXTz+kxwjIxwBbTxcAf0rJzc3Jyc3NycAAAAABABmAHoDgQLfACEANwBIAFYAABMzMjY7ATIWMyE0NjsBMhYVMzIWFREUBiMhBiY1ETQ2MzEFIg4CFRQeAjMyPgI1NC4CIzEFMzI2PQE0JisBIgYdARQWMyUiBhUUFjMyNjU0JiMxqikUDhV/FA4WAQQPCxsLDykcKCgc/W0cKCgcAd8qSzchITdLKipLOCAgOEsq/oFSCxAQC1ILDw8LAX89WFg9PlhYPgKbREQLEBALKBv+ZhwoASccAZodKEUhN0sqK0o4ICA4SisrSjggRBALDgsQEAsOCxAOWD0+WFg+PVgAAQBiACIDlgNWAAsAAAEnCQEHCQEXCQE3AQOWVP66/rpUAUb+ulQBRgFGVP66AwJU/roBRlT+uv66VAFG/rpUAUYAAAACAQoAKAL0A1oAHQArAAABIgYHAwYWOwEDBhYXFjI3ATYmKwETNiYrATgBIzEXMwMGFjsBARM2JisBEwGwAwQBkQIHBWyDAQIDAwgCAdkEBga5eQIIBPACCtd4AgYGsv5YeQEHBG2LA1oFAv5pBQn+hwMIAgEDAgcEDgEKAwoV/vYFCf4vAVgECgGDAAoAcQAxA48DWgAzADgAPQBCAEcATABRAFYAWwBgAAATIgYdASMiFDsBESMiFDsBFRQyPQEhFRQyPQEzMjQrAREzMjQrATU0JiMiBh0BITU0JiMxFzMVIzU7ARUjNTsBFSM1BTMVIzU7ARUjNTsBFSM1BTMVIzU7ARUjNTsBFSM13wQGZAoKZGQKCmQSAjISZAoKZGQKCmQGBAMF/c4FAwivr8GursKvr/59r6/Brq7Cr6/+fa+vwa6uwq+vA1oGBWQS/c4SZAoKZGQKCmQSAjISZAUGBgVkZAUGga+vr6+vr8Gurq6urq7Cr6+vr6+vAAEAZgBPA5oDFAAaAAABIgYHLgEjIg4CFRQeAjEwPgI1NC4CIwKoMVcgIFczMldBJoCagICagCZCWDIDFCUhISUmQlgycq92PD13r3IyWEElAAAAAAIAZgBPA5oDFAAeAEAAAAEVMh4CFxQOAgcuAzU0PgIzMhYfATc+ATM1MTgBMSIGBy4BIzgBMSIOAhUUHgIxMD4CNTQuAiMxAqgpSTYgAV99ehsben1fIDdJKShIGx0dG0omMVciIFcxMldBJoCagICagCZCWDIDFCkgNkgpW5NsQw0NQ2ySWipJNiAeGx0dGx4pJSEhJSZCWDJyr3Y8PXevcjJYQSUAAAMAZgAYA5oDSwAUAFsAdAAAASIOAhUUHgIzMj4CNTQuAiMTBiIHDgEjIiYnLgE1NDY/AT4BNz4BNTQmJy4BIyIGBw4BBzc+ATc+ATMyFhceARUcAQcOAQ8BDgEHDgEVFBYXHgEzMhY3BwMOASMiJicuATU0Njc+ATMyFhceARUWBgcCAFSWb0FBb5ZUVJZvQUFvllReFBUMDBoPFyUODhcCCi0CBQIBAQwFBCEMBg0HBw0FAg82Dw4bDhctDAwbAgIDATUCAwIBAwYFBA4MEQkRBgILGQ8PGQsLCgoLCxkPDxkLCwoBCwsDS0BwlVRVlW9BQW+VVVSVcED9SggEBQMLCwwdEgIzF2sHEAcIBQYLDwUEBAMBAgUCKwcQBAUFCwsLIhMDDgkKEQhpBxAHCR4ECxEDBQkCCCMB2QkNDQkJGg4OGgkKCwoLCRwODBgLAAIAZgClA5oCvgADAA8AAAEhBSUBDgEjIiYnJREhEQUDe/0KAXsBe/6cBQwGBgwF/n0DNP59Ar7Z2f7NAwMDA9v+PwHB2wAAAAMAZgB0A5oC7wAQACEAMgAAASEiJj0BNDYzITIWHQEUBiMRISImPQE0NjMhMhYdARQGIxEhIiY9ATQ2MyEyFh0BFAYjA4/84gUGBgUDHgUGBgX84gUGBgUDHgUGBgX84gUGBgUDHgUGBgUCiQUFUgQGBgRSBQX+9QYFUgQGBgRSBQb+9gYEUgUGBgVSBAYAAAIA3wAYAyMDSQASAB0AAAE1NC4CIyIOAh0BBxEFJREnJTU0NjMyFh0BJwcC4SQ9Ui4uUj0kQAEhASNC/oFdQUFdnp4B93ktTzsiIjtPLXkG/j4XGQHCBAZ1P1lZP3UPDwAAAAAIAGYAGAOYA0kAFAAaACsAMABBAEYAVQBsAAAlISImLwEuATURNDYzITIWFREWBiMlIREhERcBISImPQE0NjMhMhYdARQGIyUhNSEVKwEiJj0BNDY7ATIWHQEUBiMnMzUjFQEiJjURNDYzMhYVERYGIzEqAS8BLgE3PgEfATc2FhcWBg8BBiIjA4n9ZwMIAnYEAwsGAxAICQEKBv1tAoH9Em0CCv5mBwkKBgGaCAgICP53AXf+iVRnBwkKBmcHCQoGVkNDAUMHCQoGCAkBCggDBAOZBwIEBQ4Gj5AGDgQDAgWZAgYDGAMDiQIGAwKHCAgKBvzvBgohAu/9kH8CIwoGzQgICgbNBgoiqqoLBmYICQsGZgYLIURE/hMKBgEzCAkLBv7NBgoCZAUNBwYCBF5eAwMEBw0FZAIAAAAAAQBmABwDhwNHABgAADcTPgE3JTI0JyUiJicDJjYXARYUBwEGJjdmRgIPCgGDBwf+fwsOAkgEHxIC9BER/QwQIQQ9ASsJDgIoEQInDgoBKRMZCf6FCScJ/okJFxMAAAAABABmACgDmgMSAGMAhgCUAKIAAAEiBg8BIyIGHQE4ATEOARUUFhceARceATMHBhQXFjI/ATY0LwEuASMiBh8BIiYnLgEnLgE1NDY3FRQWMyEyNj0BHgEVFAYHDgEHIgYXFBY3PgE3PgE1NCYnNTQmKwEnLgErAQcVMzIWFzEXFBY7ATIWFREUBiMhIiY1ETQ2OwEyNjU3PgEzMRciBhUUFjMyNjU0JiMxFTIWFRQGIyImNTQ2MzEBixUkBAZEHy0lLRIPEC0bOJBTNwICAwYDQwQEQwIDAQUFBDdSjTYaKhANDyEgLCAB+h8tICEkIyJgOQMFAgcDO2IkJSksJi0fRAYEJBVzd+gPGwMIBQNKGCMjGP4KGCMjGEoDBQgDHA51OVBQOTlQUDkxSEYzM0ZIMQMQGxQdKyHdFzoiFCYRER4NGB03AwYEAQFGAgcDRAEBCwM4HRkMHA8PIhAbMBRSHysrH1IWMBkaMhYVIQkIAwMEAQkjFhc5ICI6F98fLR0UGwIOFQ4jAwMjGf69GSMjGQFDGSMDAyMMF5pQOTlQUDk5UBBGMTFGRjExRgAEAG8AGAOiA0sACQARABYAGwAAAREhDwEvASMRITchETMXNyERBSEVITUVIRUhNQNc/k4UPDsVVAKmRvzNdHV1AdX9fQGZ/mcBmf5nAwb+CB9YWB8B+EX9fbCwAoPnKSmQKCgABABmADkDnAMoADgATQBiAHcAABM0Jic1NCYjIgYdAQ4BFRQWFxUOARUUFhcVDgEVFBYXFRQWMzI2PQE+ATU0Jic1PgE1NCYnNT4BNSUhMCIPAQYUHwEeATEhMjY9AS4BIxEhMCYPAQYUHwEeATEhMjY9AS4BIxEhMCIPAQYUHwEeATEhMjY9AS4BI80UDwoGBwoPFBQPDxQUDw8UFA8KBwcJDxQUDw8UFA8PFAKq/hIYB0MFBUMFGgHwDhUCFA/+EhgHQwUFQwUaAfAOFQIUD/4SGAdDBQVDBRoB8A4VAhQPAsIRGgYlCAgKBiUEHBERGgawBRsRERoHsAMbEREaBiUHCQoGJQUbEREaBrEEHBERGgawBRkRRAQ0BBAEMwUCFA9EDxT+7wEFMwUPBTMEAhMQQxAT/vAEMwUPBTMFARMPRA4VAAAAAAUAmAAmA2gDWAAlADQASQBcAGkAAAE1MzI2NTQmKwEiBhUUFjsBFQ4DFRQeAjMyPgI1NC4CJyc0NjsBMhYVFAYrASImNRMiLgI1ND4CMzIeAhUUDgIjEycHLgEjIgYVFBYzMjY1NCYnNwciJjU0NjMyFhUUBiMCBk4RGBgRuBEYGBFNRntcNDhihEpKhGI4N2CBSnkJBrgGCAgGuAYJc0V6WjU1WnpFRXpaNTVaekXLFZ8FDAYUGxsUFBsDA6LLCAwLCQgMDAgC+Q0YERAZGRARGA8EO2GASEuDYjk5YoNLSoNiOgE4BggIBgcICAf9EjVaekVFeVo0NVp6RUV5WjQCAhWgAwMbFBQbGxQGDASeyQwJCAwLCQkMAAAAAgCRABYDbwNJABQALwAAARQOAiMiLgI1ND4CMzIeAhUHDgEjIiYnDgMVFB4CMzI+AjU0LgInAsUfNkcpKUc2Hx82RykpRzYfLx5NKytMHy9QOSE6Y4ZMTIZjOiE5UC8ChSlcTTIyTVwpKEg1Hx41SCnNJzExJxQ5QUEdJUMxHR0xQyUdQUE5FAAAAAABAAAAAQAAH7yqpV8PPPUACwQAAAAAANGA2WIAAAAA0YDZYgAAAAADogNaAAAACAACAAAAAAAAAAEAAAPA/8AAAAQAAAAAAAOiAAEAAAAAAAAAAAAAAAAAAAAWBAAAAAAAAAAAAAAAAgAAAAQAAX0EAABmBAAAYgQAAQoEAABxBAAAZgQAAGYEAABmBAAAZgQAAGYEAADfBAAAZgQAAGYEAABmBAAAbwQAAGYEAACYBAAAkQAAAAAACgAUAB4AUADCAOQBKgGiAcwCIALIAuwDNANmBAQENAUKBTwF4AZuBrQAAAABAAAAFgCjAAoAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEACgAAAAEAAAAAAAIABwB7AAEAAAAAAAMACgA/AAEAAAAAAAQACgCQAAEAAAAAAAUACwAeAAEAAAAAAAYACgBdAAEAAAAAAAoAGgCuAAMAAQQJAAEAFAAKAAMAAQQJAAIADgCCAAMAAQQJAAMAFABJAAMAAQQJAAQAFACaAAMAAQQJAAUAFgApAAMAAQQJAAYAFABnAAMAAQQJAAoANADIQURUUy1JY29ucwBBAEQAVABTAC0ASQBjAG8AbgBzVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwQURUUy1JY29ucwBBAEQAVABTAC0ASQBjAG8AbgBzQURUUy1JY29ucwBBAEQAVABTAC0ASQBjAG8AbgBzUmVndWxhcgBSAGUAZwB1AGwAYQByQURUUy1JY29ucwBBAEQAVABTAC0ASQBjAG8AbgBzRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+b {
+    font-family: 'RalewayBold';
+}
+/*BODY*/
+
+body {
+    font-family: RalewayRegular;
+    background-color: #F7F7F7;
+    margin: 0;
+}
+/*PAGE HEADER*/
+/*PAGE FOOTER*/
+/*TERUGKERENDE ELEMENTEN*/
+
+header,
+hgroup,
+nav,
+footer,
+figure,
+figcaption {
+    display: block;
+}
+
+p {
+    font-size: 1em;
+    color: #333333;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFF;
+    z-index: 50;
+}
+
+h1 {
+    font-size: 1.2em;
+    font-weight: 100;
+    text-align: center;
+    color: #333333;
+    padding: 12px;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'RalewayRegular';
+    font-size: 1em;
+    text-align: left;
+    color: #FFFFFF;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-weight: 100;
+    margin-top: 0;
+}
+
+.informeren {
+    background-image: url(img/kleurenbalk.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+h2,
+p {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+textarea:focus,
+input:focus,
+select:focus,
+button:focus {
+    outline: none;
+}
+/* Menu icon*/
+
+.menu_icon {
+    width: 30px;
+    position: fixed;
+    top: 12px;
+    left: 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.menu_icon span {
+    display: block;
+    position: fixed;
+    height: 4px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.menu_icon span:nth-child(1) {
+    top: 0px;
+}
+
+.menu_icon span:nth-child(2),
+.menu_icon span:nth-child(3) {
+    top: 10px;
+}
+
+.menu_icon span:nth-child(4) {
+    top: 20px;
+}
+
+.menu_icon.open span:nth-child(1) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+}
+
+.menu_icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.menu_icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.menu_icon.open span:nth-child(4) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+}
+
+.notextdecoration {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+/*<------ PAGINA SPECIFIEK ------>*/
+/*Login*/
+
+form {
+    background-image: url(img/blurredbg.jpg);
+    background-size: cover;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+}
+
+.more_info {
+    color: #fff;
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.more_info:after {
+    font-family: 'icons';
+    content: " h";
+    font-size: 1.2em;
+}
+
+.inputnaam,
+.inputcode,
+.inputmail {
+    font-family: 'RalewayRegular';
+    display: block;
+    margin: 0 auto 15px auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: #FFF;
+    border-bottom: solid 1px rgba(250, 250, 250, 0.7);
+    padding: 8px 35px;
+    width: 70%;
+    background-repeat: no-repeat;
+    background-position: bottom 10px left 5px;
+    border-radius: 0;
+    font-size: 1em;
+}
+
+.inputnaam {
+    background-image: url(img/user.png);
+    background-size: 15px;
+}
+
+.inputcode {
+    background-image: url(img/lock.png);
+    background-size: 12px;
+}
+
+.inputmail {
+    background-image: url(img/mail.png);
+    background-size: 16px;
+}
+/*Timeline*/
+
+.gekleurdebalk {
+    background-image: url(img/kleurenbalk.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 0.45em;
+    position: fixed;
+    overflow: hidden;
+    color: #FFF;
+    text-align: center;
+}
+
+.gekleurdebalk p {
+    color: #FFF;
+    margin: 8px 0;
+}
+
+.gekleurdebalk ul {
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.gekleurdebalk li {
+    width: 50%;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 6px 0;
+}
+
+.gekleurdebalk li:nth-of-type(1) {
+    background-color: #C03A2A;
+}
+
+.gekleurdebalk li:nth-of-type(2) {
+    background-color: #4AB16A;
+}
+
+.gekleurdebalk ul:before,
+.gekleurdebalk ul:after {
+    content: ' ';
+    display: table;
+}
+
+.darken {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    z-index: -1;
+    opacity: 0;
+}
+
+.insidebox {
+    border-left: solid 1px #BDC3C7;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.berichten {
+    width: 100%;
+    margin-right: auto;
+    margin-left: 14px;
+}
+
+.triangle-message {
+    position: absolute;
+    margin: 17px -16px;
+    !important
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #BDC3C7;
+}
+
+article {
+    margin-bottom: 4%;
+    background-color: #FFFFFF;
+    border: solid 1px #BDC3C7;
+    position: relative;
+}
+.messagepicture {
+    width: 97%;
+    display: block;
+    margin: auto;
+
+}
+
+.messagetime {
+    display: inline-block;
+    float: left;
+}
+
+.welcometext {
+    font-size: 0.8em;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.like-heart {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+}
+
+.like-count { 
+    display: inline-block;
+    text-align: center;
+    margin: 10px 0 10px 11.5%;
+    padding: 0;
+}
+
+.ongepast_icon {
+    font-family: 'icons';
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 5px;
+    top: 11px;
+    right: 11px;
+    color: #555555;
+    cursor: pointer;
+}
+/*Textinvoer*/
+
+.tekstinvoer {
+    background-color: #FFFFFF;
+}
+
+p.naam {
+    color: #333333;
+    padding-top: 3%;
+}
+
+p.message {
+    color: #7D7F87;
+    padding-top: 2%;
+    word-wrap: break-word;
+}
+
+textarea {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 20%;
+    display: block;
+    width: 90%;
+    border: none;
+    background-color: #F7F7F7;
+    color: #7D7F87;
+    font-family: RalewayRegular;
+    font-size: 0.9em;
+    resize: none;
+}
+
+#add_photo {
+    font-family: 'icons';
+    font-size: 1.9em;
+    display: inline-block;
+    text-align: left;
+    width: 30%;
+    float: left;
+    position: fixed;
+    bottom: 9%;
+    left: 3%
+}
+
+.public_private {
+    font-family: 'RalewayRegular';
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 40%;
+    position: fixed;
+    bottom: 10%;
+    left: 30%;
+    right: 30%;
+}
+
+.send_message {
+    font-family: icons;
+    font-size: 1.6em;
+    display: inline-block;
+    float: left;
+    text-align: right;
+    width: 30%;
+    position: fixed;
+    bottom: 9%;
+    right: 3%
+}
+
+.publiek-prive {
+    position: absolute;
+    width: 90%;
+    height: 18%;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    margin: auto;
+    background-color: #333;
+    color: #fff;
+    font-family: 'RalewayRegular';
+    display: none;
+}
+
+.p-popup {
+    text-align: left;
+    padding: 7px 0 0 10px;
+    margin: 0;
+    font-size: 1em;
+    color: #fff;
+}
+
+.ul-popup {
+    display: block;
+    padding: 0;
+    text-align: center;
+    margin: 5px 0;
+    background-color: #333;
+}
+
+.li-popuppubliek,
+.li-popupprive {
+    list-style: none;
+    border-top: 1px solid #fff;
+    margin: 0;
+    font-size: 1em;
+    padding: 5px;
+    background-color: #333;
+}
+
+.driehoekpopup {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #333;
+    margin: -5px auto;
+    left: 0;
+    right: 0;
+}
+/*Logout*/
+
+.slidemenu {
+    background-color: #FFF;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    z-index: 150;
+}
+
+.logo {
+    padding-top: 10%;
+    padding-bottom: 5%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.naamlogout {
+    color: #333333;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.eventnaamlogout {
+    color: #C53D35;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.eventcodelogout {
+    color: #333333;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 7%;
+}
+
+.logoutfooter {
+    color: #A5A5A5;
+    font-size: 0.5em;
+    text-align: center;
+    display: block;
+    margin: auto;
+    bottom: 3%;
+    width: 100%;
+    position: absolute;
+}
+
+.onlineplatform {
+    font-family: 'RalewayRegular';
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #FFFFFF;
+    background-color: #962C24;
+    font-size: 0.9em;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 3px;
+    display: block;
+    border: none;
+    margin-bottom: 0;
+    margin-top: 15%;
+}
+
+.logoutbutton {
+    font-family: RalewayRegular;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #FFFFFF;
+    background-color: #347481;
+    font-size: 0.9em;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 3px;
+    display: block;
+    border: none;
+    margin-bottom: 10%;
+    margin-top: 6%;
+}
+/*Foto*/
+/* Witte placeholder */
+
+.loginform input::-webkit-input-placeholder {
+    color: #FFF;
+}
+
+.loginform input::-moz-placeholder {
+    color: #FFF;
+}
+
+.loginform input:-ms-input-placeholder {
+    color: #FFF;
+}
+
+input:-moz-placeholder {
+    color: #FFF;
+}
+/* Login knop */
+
+.loginbutton {
+    width: 70%;
+    color: #347481;
+    background-color: #fff;
+    font-size: 0.9em;
+    padding: 3%;
+    border-radius: 3px;
+    display: block;
+    border: none;
+    margin: 20% auto 5% auto;
+    cursor: pointer;
+    font-size: 1em;
+}
+/*Help-overlay*/
+
+.help {
+    font-family: 'RalewayBold';
+    background-image: url(img/kleurenbalk.png);
+    background-size: cover;
+    padding: 15px;
+    font-size: 0.85em;
+    color: #FFF;
+    position: relative;
+    display: none;
+    margin: 0;
+}
+
+.closehelp:before {
+    font-family: 'icons';
+    display: block;
+    position: absolute;
+    content: 'c';
+    top: 13px;
+    right: 15px;
+    font-size: 23px;
+    font-weight: 100;
+}
+
+.helptekst {
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8em;
+    font-weight: 100;
+    padding: 5%;
+    font-family: 'RalewayRegular';
+    max-height: 80%;
+    display: none;
+    overflow: auto;
+}
+
+.helptekst p {
+    margin-top: 0;
+}
+
+.wrapperhelp {
+    width: 92%;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20px;
+    bottom: 20px;
+    display: none;
+}
+/*Onderste balk met tabs*/
+
+.tabs {
+    margin: 0;
+    background-color: #34495E;
+    color: #FFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.tabs:before,
+.tabs:after {
+    content: ' ';
+    display: table;
+}
+
+.tabs li {
+    list-style: none;
+}
+
+.tabs li a {
+    width: 50%;
+    display: block;
+    float: left;
+    text-align: center;
+    padding: 10px 0 0 0;
+    box-sizing: border-box;
+    line-height: 30px;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.tabicon {
+    font-family: 'icons';
+    font-size: 30px;
+}
+
+.balkjeactive {
+    height: 4px;
+    top: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 50%;
+    background-color: #50AFC4;
+}
+
+.tabactive {
+    color: #50AFC4 !important;
+    background-color: #2C3E50;
+}
+#canvas, #myImage {
+	display: none;
+}
+#defImg {
+	display: block;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*...*/
+/*<-------------------------------------- MEDIAQUERIES ----------------------------------------------->*/
+/* ------ Media Query for iPad landscape --------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .insidebox {
+        width: 65%;
+        margin-top: 9%;
+    }
+    h1 {
+        padding: 2%;
+    }
+    h2 {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-top: 0;
+    }
+    .menu_icon {
+        top: 20px;
+    }
+    .ui-panel {
+        width: 30em !important;
+    }
+    .loginbutton {
+        width: 30%;
+        margin: 10% auto 5% auto;
+    }
+    .logo {
+        padding-top: 5%;
+        width: 20%;
+    }
+    .inputnaam,
+    .inputcode,
+    .inputmail {
+        width: 50%;
+    }
+    form {
+        height: 60%;
+    }
+    .publiek-prive {
+        width: 90%;
+        height: 14%;
+        bottom: 15%;
+    }
+    .triangle-message {
+        margin: 17px -34px;
+    }
+}
+/* ------ Media Query for iPhone 5 --------- */
+/* ------ Media Query for iPhone 6 --------- */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+    .triangle-message {
+        margin: 17px -18px;
+    }
+}
+/* ------ Media Query for iPhone 6 plus --------- */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+    .triangle-message {
+        margin: 17px -20px;
+    }
+}
+/* ------ Media Query for Samsung Galaxy S4 --------- */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) and (max-device-width: 1920px) {
+    .triangle-message {
+        margin: 17px -19px;
+    }
+}
+/* ------ Media Query for Nexus 7 --------- */
+/*@media only screen and (-webkit-min-device-pixel-ratio: 1.325) and (max-device-width:1280px) {
+	.publiek-prive {
+		height: 14%;
+		bottom: 25%;
+	}
+	
+	.triangle-message {
+		margin: 17px -32px;
+	}
+}*/
+/* Shadow- & fontverandering door jQuerymobile disabelen */
+
+* {
+    text-shadow: none;
+    font-family: 'RalewayRegular';
+}
+
+.slidemenu {
+    width: 100%;
+}

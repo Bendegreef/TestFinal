@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+	<meta charset="utf-8">
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<title>A Day To Share</title>
+	<link rel="stylesheet" href="adts.css">
+	<script src="phonegap.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="js/jquery.touchSwipe.min.js"></script>
+
+	<script src="js/verzend.js"></script>
+	<script src="js/swipe.js"></script>
+	<script src="js/logout.js"></script>
+
+	<script src="js/script.js"></script>
+	<script src="js/fototoevoegen.js"></script>
+
+
+</head>
+
+<body>
+	<section class="wrapper">
+		<header>
+
+			<h1 class='naam_event'>Naam event</h1>
+		</header>
+		<div class="menu_icon">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+		<h1>Naam event</h1>
+		<section class="informeren">
+			<h2>Voeg iets toe in het gastenboek en<br>
+  draag bij tot een uniek gastenboek!</h2>
+		</section>
+
+		<p class="naam">Naam</p>
+		<textarea class="bericht" rows="4" placeholder="Tik hier uw bericht."></textarea>
+		<img id="myImage">
+		<canvas id="canvas"></canvas>
+		<img id="defImg">
+	</section>
+
+	<div class="publiek-prive">
+		<p class="p-popup">Als u voor een privé publicatie kiest, zal uw bericht wel in het finaal gastenboek verschijnen maar niet op de tijdslijn van de applicatie.</p>
+		<ul class="ul-popup">
+			<li class="li-popupprive">privé</li>
+			<li class="li-popuppubliek">publiek</li>
+		</ul>
+		<div class="driehoekpopup"></div>
+	</div>
+
+
+	<a id="add_photo">b</a>
+	<section class="public_private">publiek</section>
+	<section id="send_message" class="send_message">m</section>
+
+
+	<nav class="tabs">
+		<li>
+			<a class="tabactive" href="tekstinvoer.html">
+				<div class="balkjeactive"></div>
+				<span class="tabicon berichticon">o</span>
+			</a>
+		</li>
+		<li>
+			<a href="timeline.html">
+
+				<span class="tabicon tijdlijnicon">p</span>
+			</a>
+		</li>
+	</nav>
+
+	<div class="slidemenu">
+
+		<img class="logo" alt="logo" src="img/adtslogo.svg">
+
+		<p class="naamlogout">Naam</p>
+		<p class="eventnaamlogout">Naam event</p>
+		<p class="eventcodelogout">Eventcode</p>
+
+		<button id="onlineplatform" class="onlineplatform">Naar het online platform</button>
+		<button id="logoutbutton" class="logoutbutton">Logout</button>
+
+		<footer class="logoutfooter">Departement Design &amp; Technologie van de Erasmushogeschool Brussel</footer>
+	</div>
+
+</body>
+
+</html>
