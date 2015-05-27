@@ -34,14 +34,14 @@ $(document).ready(function () {
 var limiet = 5;
 var offset = 0;
 var liketeller = 0;
-    
-ophalenBerichten(limiet, offset, liketeller);
-    alert(liketeller);
+var code = localStorage.getItem('loginCode');    
+ophalenBerichten(code, limiet, offset, liketeller);
+
 $(window).scroll(function() {
    if($(window).scrollTop() + $(window).height() == $(document).height()) { 
        offset += limiet;
        liketeller += limiet;
-       ophalenBerichten(limiet, offset, liketeller);
+       ophalenBerichten(code, limiet, offset, liketeller);
 
    }
 });
@@ -52,11 +52,13 @@ $(window).scroll(function() {
 
 //------------------------- Berichten ophaal functie------------*/
 
-var ophalenBerichten = function(limiet, offset, liketeller){
-     var messages = [];
+var ophalenBerichten = function(code, limiet, offset, liketeller){
+    // var messages = [];
 
         jQuery.ajax({
-                url: 'http://api.adaytoshare.be/1/guestbook/get_posts?code=951951&limit='+limiet+'&offset='+offset+'',
+                type: 'GET',
+                url: 'http://api.adaytoshare.be/1/guestbook/get_posts',
+                data: {code: code, limit: limiet, offset: offset},
                 dataType: 'json',
                 success: function(responseData){
                     
@@ -81,7 +83,7 @@ var ophalenBerichten = function(limiet, offset, liketeller){
                     htmlString += "</article>";
                     $('#berichten').append(htmlString);
                     
-                    likes(liketeller);
+                    likes(liketeller, responseData.messages[i].messageID);
                     liketeller ++;
                 }
 
@@ -116,7 +118,7 @@ function timeConverter(UNIX_timestamp){
 
 
 //------------------------- Likes (wordt opgeroepen in de ajax call van: Ophalen tekstberichten------------*/
-var likes = function(liketeller){   
+var likes = function(liketeller, messageID){   
     
      var counter = 0;
 
@@ -146,6 +148,7 @@ var likes = function(liketeller){
             }, 500, 'easeOutBack');
             var like_count = $('.like-count'+liketeller+'').text();
             $('.like-count'+liketeller+'').text(parseInt(like_count)+1);
+            LikeSturenNaarServer(messageID);
         }
 
     });
@@ -178,44 +181,25 @@ var ongepast = function(){
 
 
 
-/* --------------verzenden-------------------------- */
+/* --------------Like opsturen naar de server-------------------------- */
+   
 
-$(document).ready(function () {
-      document.getElementById("send_message").addEventListener("click", verzenden, false);
-
-    function verzenden(){
-
-        var message = $('.bericht').val();  
+function LikeSturenNaarServer(messageID){
+        
         var code = localStorage.getItem('loginCode');
-        var from = $('.naam').text(); 
-        var email = localStorage.getItem('email');
-        var public_private = $('.public_private').text();
-        var pb = 1;
-        if(public_private == "privé")
-            pb = 0;
-        
-        var data = {code:code,from:from, message: message};
+        var data = {code:code, messageID: "388"};
         var json1 = JSON.stringify(data);
-        var url = "http://api.adaytoshare.be/1/guestbook/post?code="+ code +"&from="+ from +"&message="+ message +"&public=" + pb;
-        if(email != '')
-            url = "http://api.adaytoshare.be/1/guestbook/post?code="+ code +"&from="+ from +"&message="+ message + "&email=" + email + "&public=" + pb;
-        
  $.ajax({
-   url: url,    // opsturen van data in het data veld lukt nog niet. Daarom moet het voorlopig via de url.
-   type: 'POST',
-   data:  json1,
-    // contentType: "application/json",
+     type: 'POST',
+     url: "http://api.adaytoshare.be/1/platform/like?code=951951&messageID=388",
+    // data: {code: code, messageID: messageID},
+     data: json1,
    dataType:'json',
    success: function(responseData){
-     //On ajax success do this
-       //for (var key in responseData) {
-                  //alert(key + ": " +responseData[key]);
-                // }
-       window.location = "timeline.html";
-      },
+       alert('liked');
+    },
    error: function(xhr, ajaxOptions, thrownError) {
-      alert("fout bij het versturen");
+      alert("fout bij het liken");
     }
  });
     }
-});
